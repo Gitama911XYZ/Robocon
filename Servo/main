@@ -1,0 +1,17 @@
+#include<onoff.h>
+I2C efg(PB_9, PB_8);
+onoff a(&efg, 0x40);
+
+
+int main(){
+    a.setup();
+    printf("ready");
+    while (true)
+    {
+        a.mainservo(0,1);
+        wait_us(1000000);
+        a.mainservo(0,0);
+        wait_us(1000000);
+    }
+    
+}
